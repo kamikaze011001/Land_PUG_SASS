@@ -1,0 +1,92 @@
+.work{
+  padding: 110px 0;
+  background: #de2b24;
+  color:#fff;
+  cursor:url(./../../images/icons/mouse.png), auto;
+  @media(max-width: 985px){
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+
+    /* весь контейнер поддерживает перспективу */
+    .flip-container {
+      perspective: 1000px;
+      width: 256px;
+      height: 256px;
+      .flip-container, .front, .back {
+        width: 256px;
+        height: 256px;
+      }
+      /* здесь находится скорость перевертывания */
+      .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        background: #f35e59;
+        position: relative;
+      }
+
+      /* скройте обратную сторону во время переворота */
+      .front, .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      /* лицевая сторона размещена над обратной */
+      .front {
+        z-index: 2;
+      }
+
+      /* обратная, изначально скрытая сторона */
+      .back {
+        transform: rotateY(180deg);
+      }
+    }
+    /* переверните сторону при проведении мышью */
+    .flip-container:hover .flipper, .flip-container.hover .flipper {
+      transform: rotateY(180deg);
+    }
+  }
+  .title--with-bottom-line{
+    &:after{
+      background: #fff;
+    }
+  }
+  &__item{
+    width: 256px;
+    height: 256px;
+    font-weight: bold;
+
+    &--name{
+      position:relative;
+      padding: 130px 40px 75px 40px;
+      text-align: center;
+      &:before{
+        @include centerer-x;
+        content: '';
+        top: 74px;
+      }
+    }
+  }
+  &__name{
+    font-size: 1.625rem;
+  }
+
+  &__picture{
+    width: 100%;
+    height: 100%;
+  }
+  &__description{
+    font-size: 1rem;
+  }
+}

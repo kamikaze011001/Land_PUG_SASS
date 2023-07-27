@@ -1,0 +1,15 @@
+.container{
+  max-width: 1024px;
+  margin:auto;
+}
+.contacts{
+  background-color: $color-top-header;
+}
+
+.is-hidden{
+}
+
+.visually-hidden{
+  text-indent: -9999px;
+  font-size: 0;
+}

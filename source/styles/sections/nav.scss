@@ -1,0 +1,50 @@
+.nav{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 170px;
+  @media (max-width: 530px) {
+    margin-left: 0;
+  }
+
+  &__link{
+    display: inline-block;
+    /*добавляем это свойство из-за display: inline-block, тк при нём элементы
+    выравниваются по base line*/
+    vertical-align: top;
+    padding: 10px;
+    font-family: $ff-main-bold;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #424242;
+    transition: 0.3s;
+    
+    @media (max-width: 1025px) {
+      margin-left: 25px;
+    }
+
+    &:hover,
+    &--active{
+      color: #de2b24;
+    }
+    &:after{
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+      background-color: #424242;
+      margin-left: 15px;
+    }
+    @media (max-width: 530px) {
+      display: block;
+      &:after{
+        display: none;
+      }
+    }
+    /*&:last-child он мже может понять єто как послденюю ссылку?*/
+    &:last-child:after{
+      display: none;
+    }
+  }
+}
